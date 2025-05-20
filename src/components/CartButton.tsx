@@ -43,7 +43,7 @@ const CartButton: React.FC = () => {
       {showMessage && (
         <div className="absolute bottom-full right-0 mb-4 p-4 bg-white rounded-lg shadow-lg max-w-xs animate-fade-in">
           <div className="relative">
-            <div className="absolute -bottom-4 right-8 w-4 h-4 bg-white transform rotate-45"></div>
+            <div className="absolute -bottom-4 right-8 w-12 h-4 bg-white transform rotate-45"></div>
             <p className="text-sm text-gray-800">
               ¡Siiiii! 🎉 ¡Qué alegría, ya agregaste tu primer producto! Vamos por más, sigue sumando lo que necesites y cuando estés listo... ¡haz clic aquí para pedir tu presupuesto! 😄🛒
             </p>
