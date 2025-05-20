@@ -91,7 +91,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               >
                 <Minus className="w-4 h-4" />
               </button>
-              <span className="font-semibold">{quantity}</span>
+              <input
+  type="number"
+  value={quantity}
+  min={0}
+  onChange={(e) => handleQuantityChange(Number(e.target.value))}
+  className="w-12 px-2 py-1 text-center font-semibold border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+
               <button
                 onClick={() => handleQuantityChange(quantity + 1)}
                 className="p-1 rounded-md text-white"

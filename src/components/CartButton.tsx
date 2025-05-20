@@ -41,11 +41,12 @@ const CartButton: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6">
       {showMessage && (
-        <div className="absolute bottom-full right-0 mb-4 p-4 bg-white rounded-lg shadow-lg max-w-xs animate-fade-in">
-          <div className="relative">
-            <div className="absolute -bottom-4 right-8 w-12 h-4 bg-white transform rotate-45"></div>
-            <p className="text-sm text-gray-800">
-              ¡Siiiii! 🎉 ¡Qué alegría, ya agregaste tu primer producto! Vamos por más, sigue sumando lo que necesites y cuando estés listo... ¡haz clic aquí para pedir tu presupuesto! 😄🛒
+<div className="absolute bottom-full right-2 mb-4 p-4 bg-white text-black rounded-xl shadow-lg w-56 animate-fade-in">
+  <div className="relative">
+    {/* Flechita del tooltip */}
+    <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white rotate-45"></div>
+    <p className="text-sm">
+              ¡Siiiii! 🎉 ¡Qué alegría, agregaste tu primer producto! Vamos por más... 😄🛒
             </p>
           </div>
         </div>
