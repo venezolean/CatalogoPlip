@@ -23,6 +23,15 @@ function App() {
         ) : (
           <>
             <Catalog />
+            <div className="fixed bottom-6 left-6">
+              <button
+                onClick={() => setShowBudget(true)}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300"
+              >
+                Generar Presupuesto
+              </button>
+            </div>
+
             <CartButton />
           </>
         )}

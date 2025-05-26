@@ -5,7 +5,7 @@ import { Product, ProductCategory, CATEGORY_NAMES } from '../types';
 import { fetchProducts } from '../services/api';
 import BudgetProductCard from './BudgetProductCard';
 import { formatCurrency } from '../utils/format';
-import logo from './img/logope.png';
+import logo from './img/Plip.png';
 
 interface BudgetProduct extends Product {
   quantity: number;
@@ -125,44 +125,35 @@ const BudgetPage: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Área imprimible */}
-        <div ref={printRef} className="bg-white p-8">
-          {/* Cabecera del presupuesto */}
-          <header className="grid grid-cols-3 items-center border-b pb-4">
+        <div ref={printRef} className="bg-white p-6">
+          {/* Cabecera */}
+          <header className="grid grid-cols-3 items-start border-b pb-2">
             <div>
-              <h1 className="flex items-center space-x-4 text-2xl font-bold">
-                <img
-                  src={logo}
-                  alt="Logo PlipShop"
-                  className="h-12 w-auto object-contain"
-                />
-              </h1>
-              
+              <img src={logo} alt="Logo PlipShop" className="h-10 w-auto object-contain" />
             </div>
-            <div className="text-center text-sm">
-              <h2 className="text-2xl font-bold">PRESUPUESTO</h2>
+            <div className="text-center">
+              <h2 className="text-lg font-bold">PRESUPUESTO</h2>
             </div>
-            <div className="text-right">
+            <div className="text-right text-xs">
               <p>Nº <strong>{String(Math.floor(Math.random() * 10000)).padStart(4, '0')}</strong></p>
               <p>Fecha: <strong>{budget.date}</strong></p>
             </div>
-                        <div className="col-start-1 col-span-3 text-left">
-                          <p className="font-small"><strong>Dirección:</strong> Av. Jujuy 50,  C.A.B.A. </p>
-                          <p className="font-small"><strong>Telefono:</strong> 1127240042</p>
-                          <p className="font-small"><strong>Correo:</strong> Ventas.plipshop@gmail.com</p>
-                          <p className="font-small"><strong>Web:</strong> www.Plipshop.com.ar</p>
-                        </div> 
+            <div className="col-span-3 mt-2 text-xs text-gray-700">
+              <p><strong>Dirección:</strong> Av. Jujuy 50, C.A.B.A.</p>
+              <p><strong>Teléfono:</strong> 1127240042</p>
+              <p><strong>Correo:</strong> ventas.plipshop@gmail.com</p>
+              <p><strong>Web:</strong> www.plipshop.com.ar</p>
+            </div>
           </header>
 
-          {/* Datos del cliente */}
-          <section className="grid grid-cols-2 gap-4 mt-6 p-4 border rounded">
+          {/* Cliente */}
+          <section className="grid grid-cols-2 gap-4 mt-3 p-2 border rounded text-xs">
             <div>
               <p><strong>Cliente:</strong> {budget.clientName || '—'}</p>
               <p><strong>Atendido por:</strong> {budget.attendedBy || '—'}</p>
-              <p><strong>Telefono:</strong> {budget.phone || '—'}</p>
+              <p><strong>Teléfono:</strong> {budget.phone || '—'}</p>
             </div>
             <div className="text-right">
-
               <p><strong>Condición de IVA:</strong> {
                 budget.ivaType === 'none' ? 'Sin IVA' :
                 budget.ivaType === '21' ? 'IVA 21%' : 'IVA 10.5%'
@@ -170,46 +161,46 @@ const BudgetPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Tabla de productos */}
-          <table className="w-full mt-6 border-collapse">
-            <thead className="bg-gray-100">
+          {/* Tabla productos */}
+          <table className="w-full mt-3 border-collapse text-xs">
+            <thead className="bg-gray-100 text-xs">
               <tr>
-                <th className="px-2 py-1 text-left">Item</th>
-                <th className="px-2 py-1 text-left">Código</th>
-                <th className="px-2 py-1 text-left">Artículo</th>
-                <th className="px-2 py-1 text-right">Cantidad</th>
-                <th className="px-2 py-1 text-right">Precio</th>
-                <th className="px-2 py-1 text-right">Subtotal</th>
+                <th className="px-1 py-1 text-left">Item</th>
+                <th className="px-1 py-1 text-left">Código</th>
+                <th className="px-1 py-1 text-left">Artículo</th>
+                <th className="px-1 py-1 text-right">Cant.</th>
+                <th className="px-1 py-1 text-right">Precio</th>
+                <th className="px-1 py-1 text-right">Subtotal</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-xs leading-tight">
               {budget.products.map((p, i) => (
                 <tr key={p.id} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="px-2 py-1">{String(i + 1).padStart(4, '0')}</td>
-                  <td className="px-2 py-1">{p.id.toString().padStart(5, '0')}</td>
-                  <td className="px-2 py-1">{p.name}</td>
-                  <td className="px-2 py-1 text-right">{p.quantity}</td>
-                  <td className="px-2 py-1 text-right">{formatCurrency(p.unitPrice)}</td>
-                  <td className="px-2 py-1 text-right">{formatCurrency(p.quantity * p.unitPrice)}</td>
+                  <td className="px-1 py-1">{String(i + 1).padStart(4, '0')}</td>
+                  <td className="px-1 py-1">{p.id.toString().padStart(5, '0')}</td>
+                  <td className="px-1 py-1">{p.name}</td>
+                  <td className="px-1 py-1 text-right">{p.quantity}</td>
+                  <td className="px-1 py-1 text-right">{formatCurrency(p.unitPrice)}</td>
+                  <td className="px-1 py-1 text-right">{formatCurrency(p.quantity * p.unitPrice)}</td>
                 </tr>
               ))}
             </tbody>
           </table>
 
           {/* Totales */}
-          <div className="mt-6 grid grid-cols-3 gap-4">
+          <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
             <div className="col-span-2" />
-            <div className="p-4 border rounded bg-gray-50">
+            <div className="p-2 border rounded bg-gray-50 space-y-1">
               <p>Subtotal: <strong>{formatCurrency(calculateSubtotal())}</strong></p>
-              <p>IVA 10,5%: <strong>{budget.ivaType === '10.5' ? formatCurrency(calculateSubtotal() * 0.105) : formatCurrency(0)}</strong></p>
+              <p>IVA 10.5%: <strong>{budget.ivaType === '10.5' ? formatCurrency(calculateSubtotal() * 0.105) : formatCurrency(0)}</strong></p>
               <p>IVA 21%: <strong>{budget.ivaType === '21' ? formatCurrency(calculateSubtotal() * 0.21) : formatCurrency(0)}</strong></p>
-              <p className="text-xl mt-2">TOTAL: <strong className="text-blue-600">{formatCurrency(calculateTotal())}</strong></p>
+              <p className="text-sm mt-1">TOTAL: <strong className="text-blue-600">{formatCurrency(calculateTotal())}</strong></p>
             </div>
           </div>
 
-          {/* Notas finales */}
-          <footer className="mt-8 border-t pt-4 text-sm text-gray-600 text-sm">
-            <ul className="mt-2 list-disc list-inside">
+          {/* Notas */}
+          <footer className="mt-4 border-t pt-2 text-xs text-gray-600">
+            <ul className="list-disc list-inside space-y-1">
               <li>🟢 Todos los productos son de alta calidad garantizada.</li>
               <li>💡 Los precios son {budget.ivaType === 'none' ? 'netos, sin IVA' : 'con IVA incluido'}.</li>
               <li>🎁 Descuentos disponibles por compras mayores o clientes frecuentes.</li>
@@ -251,8 +242,8 @@ const BudgetPage: React.FC = () => {
               <label className="block text-sm font-medium text-gray-700">Teléfono del Cliente</label>
               <input
                 type="text"
-                value={budget.clientPhone}
-                onChange={(e) => setBudget(prev => ({ ...prev, clientPhone: e.target.value }))}
+                value={budget.phone}
+                onChange={(e) => setBudget(prev => ({ ...prev, phone: e.target.value }))}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
