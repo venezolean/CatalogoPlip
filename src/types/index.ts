@@ -1,9 +1,10 @@
-export type ProductCategory = 
-  | 'cintas_adhesivas'
-  | 'film_stretch_proteccion'
-  | 'papeleria_encuadernacion'
-  | 'bolsas_papel'
-  | 'bolsas_ecommerce';
+export type ProductCategory =
+  | 'embalaje'
+  | 'yoga_fitness'
+  | 'encuadernacion'
+  | 'blanqueria'
+  | 'perfumeria'
+  | 'otros';
 
 export interface Product {
   id: number;
@@ -14,17 +15,19 @@ export interface Product {
 }
 
 export const CATEGORY_COLORS: Record<ProductCategory, string> = {
-  cintas_adhesivas: '#0257a4',
-  film_stretch_proteccion: '#92d4fa',
-  papeleria_encuadernacion: '#2a9134',
-  bolsas_papel: '#ffc220',
-  bolsas_ecommerce: '#ff914d'
+  embalaje:       '#0257a4',
+  yoga_fitness:   '#92d4fa',
+  encuadernacion: '#2a9134',
+  blanqueria:     '#ffc220',
+  perfumeria:     '#ff914d',
+  otros:          '#888888',
 };
 
 export const CATEGORY_NAMES: Record<ProductCategory, string> = {
-  cintas_adhesivas: 'Cintas adhesivas',
-  film_stretch_proteccion: 'Film stretch y protección',
-  papeleria_encuadernacion: 'Papelería y encuadernación',
-  bolsas_papel: 'Bolsas de papel',
-  bolsas_ecommerce: 'Bolsas e-commerce'
+  embalaje:       'Embalaje',
+  yoga_fitness:   'Yoga y Fitness',
+  encuadernacion: 'Encuadernación',
+  blanqueria:     'Blanquería',
+  perfumeria:     'Perfumería',
+  otros:          'Otros',
 };

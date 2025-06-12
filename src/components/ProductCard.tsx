@@ -71,13 +71,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span>Pide el tuyo ya</span>
           </button>
           {!showQuantityControls ? (
-            <button 
+            <button
               onClick={handleAddToCart}
-              className="py-2 px-4 rounded-md text-white font-medium transition-colors flex items-center justify-center gap-2"
-              style={{ 
-                backgroundColor: CATEGORY_COLORS[product.category],
-                ':hover': { backgroundColor: `${CATEGORY_COLORS[product.category]}dd` }
-              }}
+              className="py-2 px-4 rounded-md text-white font-medium transition-colors flex items-center justify-center gap-2 hover:opacity-90"
+              style={{ backgroundColor: CATEGORY_COLORS[product.category] }}
             >
               <ShoppingCart className="w-4 h-4" />
               <span>Agregar</span>
