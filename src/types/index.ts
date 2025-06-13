@@ -5,6 +5,11 @@ export type ProductCategory =
   | 'blanqueria'
   | 'perfumeria'
   | 'otros';
+export interface ProductVariant {
+  name: string;
+  image_url: string;
+  description: string;
+}
 
 export interface Product {
   id: number;
@@ -12,6 +17,7 @@ export interface Product {
   category: ProductCategory;
   description: string;
   image_url: string;
+  variants: ProductVariant[]; 
 }
 
 export const CATEGORY_COLORS: Record<ProductCategory, string> = {

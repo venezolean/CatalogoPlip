@@ -8,7 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 export const fetchProducts = async (): Promise<Product[]> => {
   // llamamos al RPC sin genéricos
   const { data, error } = await supabase
-    .rpc('conexion_a_catalogo', null)
+    .rpc('conexion_a_catalogo3', null)
 
   if (error) {
     console.error('Error fetching inventory via RPC:', error)
