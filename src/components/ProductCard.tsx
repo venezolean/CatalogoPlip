@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { MessageCircle, ShoppingCart, Plus, Minus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product, ProductVariant, CATEGORY_COLORS } from '../types';
 import { useCart } from '../context/CartContext';
